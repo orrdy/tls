@@ -510,7 +510,7 @@
             $.post(scriptUrl, {opt: 'checkMemberId', id: id}, function(res){
                 console.log(res);
                 $.LoadingOverlay("hide");
-                if(res.status == 'not found') {
+                if(!res || res == null || res == '') {
                     return Swal.fire({
                         icon: 'error',
                         title: 'เกิดข้อผิดพลาด',
