@@ -554,6 +554,31 @@
             $.post(scriptUrl, data, function (res) {
                 console.log(res);
                 $.LoadingOverlay("hide");
+                if(res.status == 'not validated'){
+                    return Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาด',
+                        text: 'รหัสลูกค้าไม่ถูกต้อง หรือ ไม่ได้เป็นลูกค้าผลเลิศ',
+                        confirmButtonText: 'ปิด',
+                        allowOutsideClick: false
+                    })
+                }
+                if(res.status == 'member id already validated'){
+                    return Swal.fire({
+                        icon: 'error',
+                        title: 'รหัสลูกค้านี้ได้ลงทะเบียนเข้าร่วมงานแล้ว',
+                        confirmButtonText: 'ปิด',
+                        allowOutsideClick: false
+                    })
+                }
+                if(res.status == 'userid already validated'){
+                    return Swal.fire({
+                        icon: 'error',
+                        title: 'บัญชีไลน์นี้ได้ลงทะเบียนเข้าร่วมงานแล้ว',
+                        confirmButtonText: 'ปิด',
+                        allowOutsideClick: false
+                    })
+                }
                 sendMessage('member', data)
                 Swal.fire({
                     icon: 'success',
