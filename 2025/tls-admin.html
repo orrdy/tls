@@ -776,9 +776,9 @@
                 console.log("🚀 !! table_data:", table_data)
                 if (table_data.length > 0) {
                     let index = table_data.findIndex(r => r['รหัสลูกค้า'] == id && moment(r['ประทับเวลา']).isSame(moment(), 'day'))
-                    console.log(moment(table_data[index]['ประทับเวลา']).format('DD/MM/YYYY'), moment().format('DD/MM/YYYY'))
                     console.log("🚀 !! index:", index)
                     if (index > -1) {
+                    console.log(moment(table_data[index]['ประทับเวลา']).format('DD/MM/YYYY'), moment().format('DD/MM/YYYY'))
                         Swal.fire({
                             icon: 'error',
                             title: 'ลูกค้าเข้างานวันนี้แล้ว',
